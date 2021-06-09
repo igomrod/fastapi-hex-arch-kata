@@ -9,7 +9,7 @@ class TestPOSTTodo(BaseAPITest):
 
         response = self._request(method="POST",
                                  endpoint="/api/todos",
-                                 body=json.dumps(todo))
+                                 body=todo)
 
         assert response.status_code == 201
         assert response.content == b'CREATED'

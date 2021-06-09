@@ -13,3 +13,5 @@
 * GET should return all todos
 * Each retrieved todo includes: title, description, days since todo was created
 
+Note: It is ok to store todos in memory
+
