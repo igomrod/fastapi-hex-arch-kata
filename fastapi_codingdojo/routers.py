@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from .routes import api
+from .routes import api, todos
 
 
 def setup_routes(app: FastAPI):
@@ -10,6 +10,11 @@ def setup_routes(app: FastAPI):
         api.router,
         prefix="",
         tags=["api"]
+    )
+    app.include_router(
+        todos.router,
+        prefix="",
+        tags=["todos"]
     )
 
 

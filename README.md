@@ -11,5 +11,5 @@
 * Implement and endpoint "/api/todos"
 * POST should add a new todo
 * GET should return all todos
-* Each todo includes: title, description, days since todo was created
+* Each retrieved todo includes: title, description, days since todo was created
 
