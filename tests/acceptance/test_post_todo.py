@@ -3,7 +3,7 @@ import json
 
 
 class TestPOSTTodo(BaseAPITest):
-    def test_should_create_post(self):
+    def test_should_create_todo(self):
         todo = {'title': 'a new todo',
                 'description': 'This is a new todo'}
 

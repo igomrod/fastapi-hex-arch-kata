@@ -2,14 +2,10 @@ from tests.base_test import BaseAPITest
 import json
 
 
-class TestPOSTTodo(BaseAPITest):
-    def test_should_create_post(self):
-        todo = {'title': 'a new todo',
-                'description': 'This is a new todo'}
+class TestGETTodo(BaseAPITest):
+    def test_should_return_empty_list_when_none_todo_exists(self):
+        response = self._request(method="GET",
+                                 endpoint="/api/todos")
 
-        response = self._request(method="POST",
-                                 endpoint="/api/todos",
-                                 body=json.dumps(todo))
-
-        assert response.status_code == 201
-        assert response.content == b'CREATED'
+        assert response.status_code == 200
+        assert json.loads(response.content) == []
