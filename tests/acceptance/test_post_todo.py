@@ -1,5 +1,4 @@
 from tests.base_test import BaseAPITest
-import json
 
 
 class TestPOSTTodo(BaseAPITest):

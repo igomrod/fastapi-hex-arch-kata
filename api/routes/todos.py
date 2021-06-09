@@ -12,14 +12,20 @@ todos = []
 class Todo(BaseModel):
     title: str
     description: str
+    days_since_created: int
+
+
+class TodoPostRequest(BaseModel):
+    title: str
+    description: str
 
 
 @router.post(
     "/api/todos",
     description="POST todo."
 )
-def post_todo(todo: Todo):
-    todos.append(todo)
+def post_todo(todo: TodoPostRequest):
+    todos.append(Todo(title=todo.title, description=todo.description, days_since_created=0))
     return PlainTextResponse(status_code=201, content="CREATED")
 
 

@@ -6,7 +6,7 @@ from typing import Optional
 
 import pytest
 
-from fastapi_codingdojo.models.base import CustomBaseModel
+from api.models.base import CustomBaseModel
 
 
 class MyBaseModel(CustomBaseModel):

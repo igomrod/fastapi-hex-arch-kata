@@ -23,4 +23,5 @@ class TestGETTodo(BaseAPITest):
 
         assert response.status_code == 200
         assert json.loads(response.content) == [{'title': 'a new todo',
-                                                 'description': 'This is a new todo'}]
+                                                 'description': 'This is a new todo',
+                                                 'days_since_created': 0}]

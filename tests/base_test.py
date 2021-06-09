@@ -3,7 +3,7 @@ from typing import Optional
 from fastapi.testclient import TestClient
 from requests import Session, Response
 
-from fastapi_codingdojo.app import app
+from api.app import app
 
 
 class BaseAPITest:
