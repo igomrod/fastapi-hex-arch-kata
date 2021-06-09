@@ -20,8 +20,12 @@ get_all_todo_service = GetAllTodosService(repository=todos_repository)
     description="POST todo."
 )
 def post_todo(todo_create_request: TodoCreateRequest):
-    create_todo_service.execute(todo_create_request=todo_create_request)
-    return PlainTextResponse(status_code=201, content="CREATED")
+    try:
+        create_todo_service.execute(todo_create_request=todo_create_request)
+        return PlainTextResponse(status_code=201, content="CREATED")
+    except ValueError as e:
+        return PlainTextResponse(status_code=400, content=str(e))
+
 
 
 @router.get(

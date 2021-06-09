@@ -12,3 +12,14 @@ class TestPOSTTodo(BaseAPITest):
 
         assert response.status_code == 201
         assert response.content == b'CREATED'
+
+    def test_should_return_400_when_attrs_are_wrong(self):
+        todo = {'title': 'this title has more than 5 words',
+                'description': 'one two three four five one two three four five one two three four five WRONG'}
+
+        response = self._request(method="POST",
+                                 endpoint="/api/todos",
+                                 body=todo)
+
+        assert response.status_code == 400
+        assert response.content == b'1 validation error for Todo\ntitle\n  max five words (type=value_error)'
