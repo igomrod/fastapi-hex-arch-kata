@@ -5,14 +5,15 @@ from fastapi.responses import PlainTextResponse, JSONResponse
 from pydantic import BaseModel
 
 from todos.application.create_todo_service import CreateTodoService
+from todos.application.get_all_todos import GetAllTodosService
 from todos.domain.dtos import TodoCreateRequest
 from todos.infrastructure.repositories import TodoRepository
 
 router = APIRouter()
 
-todos = []
-
-create_todo_service = CreateTodoService(repository=TodoRepository)
+todos_repository = TodoRepository()
+create_todo_service = CreateTodoService(repository=todos_repository)
+get_all_todo_service = GetAllTodosService(repository=todos_repository)
 
 @router.post(
     "/api/todos",
@@ -28,4 +29,4 @@ def post_todo(todo_create_request: TodoCreateRequest):
     description="GET todos."
 )
 def get_todo():
-    return JSONResponse(status_code=200, content=jsonable_encoder(todos))
+    return JSONResponse(status_code=200, content=jsonable_encoder(get_all_todo_service.execute()))
