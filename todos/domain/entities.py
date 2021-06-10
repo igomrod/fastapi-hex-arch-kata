@@ -16,6 +16,10 @@ class Title:
 class Description:
     value: str
 
+    def __post_init__(self):
+        if len(self.value.split(' ')) > 15:
+            raise ValueError('description max 15 words')
+
 
 @dataclasses.dataclass
 class Todo:

@@ -35,3 +35,17 @@ def test_should_raise_error_when_title_is_more_than_five_words():
 
     assert str(execinfo.value) == 'title max five words'
 
+
+def test_should_raise_error_when_title_is_more_than_five_words():
+    todo_create_request = TodoCreateRequest(title='A new todo',
+                                            description="I am a todo description too long long long long long long long "
+                                                        "long long long long")
+    repository = MagicMock()
+    repository.save = Mock()
+
+    service = CreateTodoService(repository=repository)
+
+    with pytest.raises(ValueError) as execinfo:
+        service.execute(todo_create_request)
+
+    assert str(execinfo.value) == 'description max 15 words'
