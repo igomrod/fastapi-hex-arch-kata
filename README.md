@@ -1,4 +1,4 @@
-# Kata: Simple TODOs but qith nice arch
+# Kata: Simple TODOs with nice arch
 
 ## Usage
 
@@ -21,6 +21,7 @@ $ python .
 * Create project from cookiecutter template https://github.com/Gradiant/fastapi-cookiecutter-template
 * Install requirements and run tests 
 * Run server and check http://0.0.0.0:5000/status
+* Check generated doc http://0.0.0.0:5000/docs
 
 ## STEP 2 
 
