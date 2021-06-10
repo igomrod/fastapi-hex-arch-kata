@@ -1,3 +1,5 @@
+import dataclasses
+
 import fastapi.responses
 from fastapi import APIRouter
 from fastapi.encoders import jsonable_encoder
@@ -33,4 +35,6 @@ def post_todo(todo_create_request: TodoCreateRequest):
     description="GET todos."
 )
 def get_todo():
-    return JSONResponse(status_code=200, content=jsonable_encoder(get_all_todo_service.execute()))
+    todos = get_all_todo_service.execute()
+    todos_dicts = [todo.dict() for todo in todos]
+    return JSONResponse(status_code=200, content=todos_dicts)

@@ -1,14 +1,14 @@
 from faker import Faker
 
 from tests.todos.domain.todo_builder import TodoBuilder
-from todos.domain.entities import Todo
+from todos.domain.entities import Todo, Title
 from todos.infrastructure.repositories import TodoRepository
 
 
 def test_save():
     repository = TodoRepository()
 
-    todo = Todo(title='A new todo',
+    todo = Todo(title=Title(value='A new todo'),
                 description="I am a todo",
                 days_since_created=0)
 

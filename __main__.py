@@ -1,3 +1,3 @@
-from fastapi_codingdojo.app import run
+from api.app import run
 
 run()

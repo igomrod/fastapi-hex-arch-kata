@@ -22,4 +22,4 @@ class TestPOSTTodo(BaseAPITest):
                                  body=todo)
 
         assert response.status_code == 400
-        assert response.content == b'1 validation error for Todo\ntitle\n  max five words (type=value_error)'
+        assert response.content == b'title max five words'
