@@ -1,4 +1,4 @@
-# Kata: Simple TODOs but qith nice arch
+# Kata: Simple TODOs with nice arch
 
 ## Usage
 
