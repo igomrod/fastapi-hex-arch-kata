@@ -1,3 +1,5 @@
+import pytest
+
 from tests.base_test import BaseAPITest
 import json
 
@@ -25,3 +27,7 @@ class TestGETTodo(BaseAPITest):
         assert json.loads(response.content) == [{'title': 'a new todo',
                                                  'description': 'This is a new todo',
                                                  'daysSinceCreated': 0}]
+
+    @pytest.mark.skip("CAN'T TEST THIS HERE --> UNIT")
+    def test_should_return_proper_days_since_created(self):
+        pass

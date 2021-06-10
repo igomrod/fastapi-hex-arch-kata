@@ -1,4 +1,6 @@
 import dataclasses
+import datetime
+from typing import Callable
 
 from pydantic import BaseModel, validator
 
@@ -25,9 +27,13 @@ class Description:
 class Todo:
     title: Title
     description: Description
-    days_since_created: int
+    created_date: datetime.date
+    _now: Callable = datetime.date.today
+
+    def days_since_created(self):
+        return (self._now() - self.created_date).days
 
     def dict(self):
         return {'title': self.title.value,
                 'description': self.description.value,
-                'daysSinceCreated': self.days_since_created}
+                'daysSinceCreated': self.days_since_created()}

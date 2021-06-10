@@ -1,3 +1,4 @@
+from datetime import datetime, date
 from unittest.mock import MagicMock, Mock
 
 import pytest
@@ -19,7 +20,7 @@ def test_should_save_todo():
 
     repository.save.assert_called_once_with(Todo(title=Title(value='A new todo'),
                                                  description=Description(value="I am a todo"),
-                                                 days_since_created=0))
+                                                 created_date=date.today()))
 
 
 def test_should_raise_error_when_title_is_more_than_five_words():

@@ -1,3 +1,5 @@
+from typing import Callable
+
 from todos.infrastructure.repositories import TodoRepository
 
 

@@ -1,3 +1,5 @@
+import datetime
+
 from todos.domain.dtos import TodoCreateRequest
 from todos.domain.entities import Todo, Title, Description
 from todos.infrastructure.repositories import TodoRepository
@@ -10,6 +12,6 @@ class CreateTodoService:
     def execute(self, todo_create_request: TodoCreateRequest):
         todo = Todo(title=Title(value=todo_create_request.title),
                     description=Description(value=todo_create_request.description),
-                    days_since_created=0)
+                    created_date=datetime.date.today())
 
         self._repository.save(todo)
